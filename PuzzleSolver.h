@@ -1,24 +1,27 @@
 // PuzzleSolver.h : This file contains the declaration of all variables and methods used in solving the Keyboard Knights puzzle.
 //
 #pragma once
-#include <list>
+#include <vector>
 #include <set>
 #include <iostream>
 #include <array>
 using namespace std;
 
-const array<array<char, 5>, 4> keyboard = { {
+const array<array<char, 5>, 4> keyboard = {{
                                 {'A', 'B', 'C', 'D', 'E'},
                                 {'F', 'G', 'H', 'I', 'J'},
                                 {'K', 'L', 'M', 'N', 'O'},
-                                {'*', '1', '2', '3', '*'} } };
+                                {'*', '1', '2', '3', '*'} 
+                            }};
+
 const set<char> vowels = { 'A', 'E', 'I', 'O' };
 
 class PuzzleSolver
 {
 public:
-    PuzzleSolver();
-    list<string> combinations = list<string>{};
+    PuzzleSolver(int length);
+    int combinationLength;
+    vector<string> combinations = vector<string>{};
     void findCombinationsFromPos(string combination, array<int, 2> currentPos);
     static char getLetterAtPos(array<int, 2> pos);
     static array<int, 2> moveSEE(array<int, 2> pos);
